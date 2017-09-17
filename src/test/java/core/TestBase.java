@@ -7,9 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by chenxiaoqin on 9/10/17.
@@ -23,13 +26,17 @@ public class TestBase {
 
    // protected WebDriver driver = new FirefoxDriver();//打开火狐浏览器
    ChromeOptions options =new ChromeOptions();
-    protected WebDriver driver = new ChromeDriver(options);
+//    protected WebDriver driver=new ChromeDriver(options);
+    protected WebDriver driver;
 
 
     //获取当前类的类名传值给logger,该句的作用就是用log4j打印日志时知道是哪个类下面的打印输出信息
 
     public TestBase(){
         try {
+            driver = new RemoteWebDriver(new URL(
+                    "http://192.168.1.102:5555/wd/hub"),
+                    DesiredCapabilities.chrome());
             _newTest1();
         } catch (MalformedURLException e) {
             e.printStackTrace();
