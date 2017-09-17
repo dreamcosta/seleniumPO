@@ -18,7 +18,7 @@ public class TestBase {
 
     {
       // System.setProperty("webdriver.firefox.marionette", "/Users/chenxiaoqin/Downloads/geckodriver");
-         System.setProperty("webdriver.chrome.driver", "./chrome");
+         System.setProperty("webdriver.chrome.driver", "chromedriver");
     }
 
    // protected WebDriver driver = new FirefoxDriver();//打开火狐浏览器
