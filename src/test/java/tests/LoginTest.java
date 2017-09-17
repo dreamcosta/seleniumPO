@@ -14,10 +14,7 @@ public class LoginTest extends TestBase {
     public void login1() {
 
         try {
-            LogonPage logonPage = new LogonPage(driver)
-                    .nameInput()
-                    .passWordInput()
-                    .buttonClick();
+            LogonPage logonPage = new LogonPage(driver);
         } catch (Exception e) {
             e.printStackTrace();
         }
